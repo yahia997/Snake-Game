@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(26, 1fr);
+  grid-template-rows: repeat(26, 1fr);
+  width: 500px;
+  height: 500px;
+  background-color: black;
+}
+
+.food {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.food::before {
+  content: "";
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: blueviolet;
+}
+
+.snake {
+  background-color: red;
+}
