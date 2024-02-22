@@ -51,24 +51,23 @@ export default class Snake {
   // to make snake walk and render it to screen every this.speed
   walk() {
     const it = setInterval(() => {
-      let unique = new Set();
-
+      
       // update points while walking
       this.snake = this.snake.map((p, i) => {
-        // check duplicate positions (snake will dead)
-        if(unique.has(p)) {
-          this.dead = true;
-        };
 
-        unique.add(p);
-
+        // head of the snake
         if(i == 0) {
           return table[p][this.dir];
         }
-
+        
+        // rest will follow each other
         return this.snake[i-1];
       });
 
+      let unique = new Set(this.snake);
+      if(unique.size != this.snake.length) {
+        this.dead = true;
+      }
 
       // render menu positions on screen
       this.render();
